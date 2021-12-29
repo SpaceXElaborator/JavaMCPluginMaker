@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.terturl.PluginMaker.Effects.Player.SendPlayerMessageEffect;
+import com.terturl.PluginMaker.Effects.Player.Inventory.GivePlayerItemStackEffect;
 import com.terturl.PluginMaker.Effects.Player.Location.PlayerTeleportSpecificEffect;
 import com.terturl.PluginMaker.Listeners.Listener;
 import com.terturl.PluginMaker.Listeners.Blocks.InteractBlockListener;
@@ -30,7 +31,6 @@ public class PluginMaker {
 	public static File MAIN_TEMPLATE_DIR = new File("./templates/");
 	
 	public static void main(String[] args) throws IOException {
-		
 		codeFormatter = new CodeFormatter();
 		
 		File f = new File("./templates");
@@ -53,7 +53,7 @@ public class PluginMaker {
 	}
 	
 	public static void createTestTemplate() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
-		Plugin p = new Plugin("Plugin Maker", "terturl");
+		Plugin p = new Plugin("Test Plugin", "terturl");
 		
 		Listener l1 = new InteractBlockListener(PlayerInteraction.RIGHTCLICKAIR, "");
 		PluginTrigger pt = new CheckPlayerItemInHand("STICK");
@@ -63,6 +63,7 @@ public class PluginMaker {
 		
 		Listener l2 = new PlayerJoinListener("PlayerJoinGame");
 		l2.addListenerEffect(new SendPlayerMessageEffect("Welcome to the server!"));
+		l2.addListenerEffect(new GivePlayerItemStackEffect("DIAMOND", 4));
 		
 		p.getListeners().add(l1);
 		p.getListeners().add(l2);
