@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.terturl.PluginMaker.Effects.Player.SendPlayerMessageEffect;
+import com.terturl.PluginMaker.Effects.Player.SetPlayerHealthEffect;
 import com.terturl.PluginMaker.Effects.Player.Inventory.GivePlayerItemStackEffect;
 import com.terturl.PluginMaker.Effects.Player.Location.PlayerTeleportSpecificEffect;
 import com.terturl.PluginMaker.Listeners.Listener;
@@ -59,6 +60,7 @@ public class PluginMaker {
 		PluginTrigger pt = new CheckPlayerItemInHand("STICK");
 		pt.addPluginEffect(new SendPlayerMessageEffect("This is a test"));
 		l1.addListenerEffect(new PlayerTeleportSpecificEffect("world", 19.5, 63.0, 299.5));
+		l1.addListenerEffect(new SetPlayerHealthEffect(10.0, "Set"));
 		l1.addPluginTrigger(pt);
 		
 		Listener l2 = new PlayerJoinListener("PlayerJoinGame");
