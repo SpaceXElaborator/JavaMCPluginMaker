@@ -127,7 +127,7 @@ public class Plugin {
 		Map<String, Object> root = new HashMap<>();
 		root.put("Plugin", this);
 		
-		Template temp = PluginMaker.getConf().getTemplate("test.ftlh");
+		Template temp = PluginMaker.getConf().getTemplate("main.ftlh");
 		Writer out = new StringWriter();
 		temp.process(root, out);
 		String formattedCode = PluginMaker.getCodeFormatter().reformatCode(out.toString());
