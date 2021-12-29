@@ -3,8 +3,8 @@ package com.terturl.PluginMaker;
 import java.io.File;
 import java.io.IOException;
 
-import com.terturl.PluginMaker.Effects.Player.PlayerTeleportSpecificEffect;
 import com.terturl.PluginMaker.Effects.Player.SendPlayerMessageEffect;
+import com.terturl.PluginMaker.Effects.Player.Location.PlayerTeleportSpecificEffect;
 import com.terturl.PluginMaker.Listeners.Listener;
 import com.terturl.PluginMaker.Listeners.Blocks.InteractBlockListener;
 import com.terturl.PluginMaker.Listeners.Player.PlayerJoinListener;

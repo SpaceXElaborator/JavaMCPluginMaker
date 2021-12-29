@@ -1,4 +1,4 @@
-package com.terturl.PluginMaker.Effects.Player;
+package com.terturl.PluginMaker.Effects.Player.Location;
 
 import java.util.ArrayList;
 import java.util.HashMap;
