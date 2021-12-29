@@ -12,9 +12,14 @@ public class SetPlayerHealthEffect extends PluginEffect {
 	private String amount;
 	private String type;
 	
-	public SetPlayerHealthEffect(Double Amount, String Type) {
+	private boolean canKill;
+	private boolean canMax;
+	
+	public SetPlayerHealthEffect(Double Amount, String Type, boolean CanKill, boolean CanMax) {
 		amount = String.valueOf(Amount);
 		type = Type;
+		canKill = CanKill;
+		canMax = CanMax;
 		this.requiresPlayer = true;
 	}
 	
@@ -29,6 +34,8 @@ public class SetPlayerHealthEffect extends PluginEffect {
 		
 		temp.put("HealthAmount", amount);
 		temp.put("HealthType", type);
+		temp.put("CanMax", canMax);
+		temp.put("CanKill", canKill);
 		
 		return temp;
 	}
