@@ -135,9 +135,12 @@ public class Plugin {
 		writer.write(formattedCode);
 		writer.close();
 		
-		createListeners();
 		createPom();
 		createYaml();
+		
+		if(!getListeners().isEmpty()) {
+			createListeners();
+		}
 	}
 	
 	private void createListeners() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
