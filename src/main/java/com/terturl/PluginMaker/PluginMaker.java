@@ -3,6 +3,7 @@ package com.terturl.PluginMaker;
 import java.io.File;
 import java.io.IOException;
 
+import com.terturl.PluginMaker.Effects.Player.PlayerTeleportSpecificEffect;
 import com.terturl.PluginMaker.Effects.Player.SendPlayerMessageEffect;
 import com.terturl.PluginMaker.Listeners.Listener;
 import com.terturl.PluginMaker.Listeners.Blocks.InteractBlockListener;
@@ -57,6 +58,7 @@ public class PluginMaker {
 		Listener l1 = new InteractBlockListener(PlayerInteraction.RIGHTCLICKAIR, "");
 		PluginTrigger pt = new CheckPlayerItemInHand("STICK");
 		pt.addPluginEffect(new SendPlayerMessageEffect("This is a test"));
+		l1.addListenerEffect(new PlayerTeleportSpecificEffect("world", 19.5, 63.0, 299.5));
 		l1.addPluginTrigger(pt);
 		
 		Listener l2 = new PlayerJoinListener("PlayerJoinGame");

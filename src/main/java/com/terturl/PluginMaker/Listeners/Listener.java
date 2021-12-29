@@ -137,6 +137,10 @@ public abstract class Listener {
 	private List<String> getImports() {
 		List<String> imports = new ArrayList<>();
 		
+		for(PluginEffect pe : getListenerEffects()) {
+			imports.addAll(pe.getImports().stream().filter(e -> !imports.contains(e)).collect(Collectors.toList()));
+		}
+		
 		for(PluginTrigger te : getPluginTriggers()) {
 			imports.addAll(te.getImports().stream().filter(e -> !imports.contains(e)).collect(Collectors.toList()));
 		}
