@@ -1,0 +1,2 @@
+# JavaMCPluginMaker
+Earlier, I tried to make a Minecraft Plugin Maker using GoLang. There was LOTS of issues present with that. One, I didn't know the language. Which greatly inhibited me from being able to continue with that project when things got hard. Thankfully, I know Java much well, and this is the new MCPluginMaker. One notable difference so far, is that Triggers have already been implemented in this. Working to transfer over everything else. Slowly but surely, this will take over the GoLang project of the same name.
