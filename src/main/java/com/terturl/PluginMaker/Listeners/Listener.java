@@ -85,6 +85,7 @@ public abstract class Listener {
 		listenerRoot.put("RequiresPlayer", checkForRequiresPlayer());
 		listenerRoot.put("TriggerVariables", createMappingsFromTriggers());
 		listenerRoot.put("EffectVariables", createMappingsForEffects());
+		System.out.println(listenerRoot.toString());
 		return listenerRoot;
 	}
 	
@@ -138,10 +139,12 @@ public abstract class Listener {
 		List<String> imports = new ArrayList<>();
 		
 		for(PluginEffect pe : getListenerEffects()) {
+			if(pe.getImports() == null || pe.getImports().isEmpty()) continue;
 			imports.addAll(pe.getImports().stream().filter(e -> !imports.contains(e)).collect(Collectors.toList()));
 		}
 		
 		for(PluginTrigger te : getPluginTriggers()) {
+			if(te.getImports() == null || te.getImports().isEmpty()) continue;
 			imports.addAll(te.getImports().stream().filter(e -> !imports.contains(e)).collect(Collectors.toList()));
 		}
 		
