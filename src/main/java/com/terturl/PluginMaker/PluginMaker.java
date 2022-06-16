@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import com.terturl.PluginMaker.Effects.Player.SendPlayerMessageEffect;
-import com.terturl.PluginMaker.Effects.Player.SetPlayerHealthEffect;
 import com.terturl.PluginMaker.Effects.Player.Inventory.GivePlayerItemStackEffect;
 import com.terturl.PluginMaker.Listeners.Listener;
 import com.terturl.PluginMaker.Listeners.Blocks.InteractBlockListener;
@@ -58,13 +57,17 @@ public class PluginMaker {
 		Listener l1 = new InteractBlockListener(PlayerInteraction.RIGHTCLICKAIR, "");
 		PluginTrigger pt = new CheckPlayerItemInHand("STICK");
 		PluginTrigger pt2 = new CheckPlayerItemInHand("DIAMOND");
-		PluginTrigger pt3 = new CheckPlayerItemInHand("COAL");
-		pt.addPluginEffect(new SetPlayerHealthEffect(20.0, "Set", false, false));
-		pt2.addPluginEffect(new SetPlayerHealthEffect(5.0, "Add", false, true));
-		pt3.addPluginEffect(new SetPlayerHealthEffect(5.0, "Sub", true, false));
+		pt.addPluginTrigger(pt2);
 		l1.addPluginTrigger(pt);
-		l1.addPluginTrigger(pt2);
-		l1.addPluginTrigger(pt3);
+//		PluginTrigger pt = new CheckPlayerItemInHand("STICK");
+//		PluginTrigger pt2 = new CheckPlayerItemInHand("DIAMOND");
+//		PluginTrigger pt3 = new CheckPlayerHealthTrigger("<", 10.0);
+//		pt.addPluginEffect(new SetPlayerHealthEffect(20.0, "Set", false, false));
+//		pt2.addPluginEffect(new SetPlayerHealthEffect(5.0, "Add", false, true));
+//		pt3.addPluginEffect(new SetPlayerHealthEffect(5.0, "Sub", true, false));
+//		l1.addPluginTrigger(pt);
+//		l1.addPluginTrigger(pt2);
+//		l1.addPluginTrigger(pt3);
 		
 		Listener l2 = new PlayerJoinListener("PlayerJoinGame");
 		l2.addListenerEffect(new SendPlayerMessageEffect("Welcome to the server!"));
